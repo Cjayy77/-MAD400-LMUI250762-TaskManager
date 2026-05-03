@@ -77,9 +77,9 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     const Text( 
-                      'I am a Level 400 Software Engineering student with a strong interest in mobile development and UI design. '
-                      'I enjoy building apps that solve everyday problems and are pleasant to use. '
-                      'Outside of academics, I work on personal projects and am always looking to improve my technical skills.',
+                      'I am a Level 400 Software Engineering student. '
+                      'I have no particular goals. '
+                      'Thats all.',
                       style: TextStyle(fontSize: 14, height: 1.6),
                     ),
                   ],
