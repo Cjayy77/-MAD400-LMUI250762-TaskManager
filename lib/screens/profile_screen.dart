@@ -18,9 +18,9 @@ class ProfileScreen extends StatelessWidget {
             // ── CircleAvatar with initials ──────────────────────────
             const CircleAvatar(
               radius: 50,
-              backgroundColor: Color(0xFF00ACC1),
+              backgroundColor: Color(0xFF0067C0),
               child: Text(
-                'CJ', 
+                'CJ',
                 style: TextStyle(
                   fontSize: 40,
                   fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
 
             // ── Full name ───────────────────────────────────────────
             const Text(
-              'Cedric Julien Eboule',
+              'Cedric Julien Eboule', 
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 4),
@@ -64,7 +64,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.info_outline, color: Color(0xFF00ACC1)),
+                        Icon(Icons.info_outline, color: Color(0xFF0067C0)),
                         SizedBox(width: 8),
                         Text(
                           'About Me',
@@ -76,10 +76,10 @@ class ProfileScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'I am a Level 400 Software Engineering student with no particular interests. '
-                      'I find coding fun sometimes.'
-                      'I hvae no particular goals for this semester.',
+                    const Text( 
+                      'I am a Level 400 Software Engineering student with a strong interest in mobile development and UI design. '
+                      'I enjoy building apps that solve everyday problems and are pleasant to use. '
+                      'Outside of academics, I work on personal projects and am always looking to improve my technical skills.',
                       style: TextStyle(fontSize: 14, height: 1.6),
                     ),
                   ],
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     const Row(
                       children: [
-                        Icon(Icons.flag, color: Color(0xFF00ACC1)),
+                        Icon(Icons.flag, color: Color(0xFF0067C0)),
                         SizedBox(width: 8),
                         Text(
                           'My Goals This Semester',
@@ -113,11 +113,10 @@ class ProfileScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 12),
-                    // ← CHANGE: Replace the goal text with your own 3 goals
-                    _goalTile('1', 'Submit all assignments before deadlines'),
-                    _goalTile('2', 'Build at least two complete Flutter apps'),
+                    _goalTile('1', 'Graduate'),
+                    _goalTile('2', 'Complete my personal projects'),
                     _goalTile('3', 'Maintain a strong GPA this semester'),
-                  ],
+                  ], 
                 ),
               ),
             ),
@@ -138,7 +137,7 @@ class ProfileScreen extends StatelessWidget {
         children: [
           CircleAvatar(
             radius: 12,
-            backgroundColor: const Color(0xFF00ACC1),
+            backgroundColor: const Color(0xFF0067C0),
             child: Text(
               number,
               style: const TextStyle(color: Colors.white, fontSize: 12),

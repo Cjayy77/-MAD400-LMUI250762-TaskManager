@@ -209,8 +209,8 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 icon: const Icon(Icons.edit),
                 label: const Text('Edit Task'),
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: const Color(0xFF00ACC1),
-                  side: const BorderSide(color: Color(0xFF00ACC1)),
+                  foregroundColor: const Color(0xFF0067C0),
+                  side: const BorderSide(color: Color(0xFF0067C0)),
                   padding: const EdgeInsets.symmetric(vertical: 14),
                 ),
               ),

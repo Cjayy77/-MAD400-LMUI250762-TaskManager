@@ -255,7 +255,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                             Navigator.pop(context); // close the bottom sheet
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF00ACC1),
+                            backgroundColor: const Color(0xFF0067C0),
                             foregroundColor: Colors.white,
                             padding: const EdgeInsets.symmetric(vertical: 14),
                           ),
@@ -414,7 +414,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 LinearProgressIndicator(
                   value: progress,
                   backgroundColor: Colors.grey.shade300,
-                  color: const Color(0xFF00ACC1),
+                  color: const Color(0xFF0067C0),
                   minHeight: 6,
                   borderRadius: BorderRadius.circular(4),
                 ),
@@ -439,11 +439,11 @@ class _TaskListScreenState extends State<TaskListScreen> {
                     label: Text(f),
                     selected: isSelected,
                     onSelected: (_) => setState(() => _filter = f),
-                    selectedColor: const Color(0xFF00ACC1).withOpacity(0.2),
-                    checkmarkColor: const Color(0xFF00ACC1),
+                    selectedColor: const Color(0xFF0067C0).withOpacity(0.2),
+                    checkmarkColor: const Color(0xFF0067C0),
                     labelStyle: TextStyle(
                       color: isSelected
-                          ? const Color(0xFF00ACC1)
+                          ? const Color(0xFF0067C0)
                           : Colors.black87,
                       fontWeight:
                           isSelected ? FontWeight.bold : FontWeight.normal,

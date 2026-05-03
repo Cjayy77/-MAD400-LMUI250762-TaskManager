@@ -15,21 +15,28 @@ class MyApp extends StatelessWidget {
       title: 'Task Manager',
       debugShowCheckedModeBanner: false, // removes the red debug ribbon
       theme: ThemeData(
-        // Turquoise + dark slate color scheme
+        // Windows File Explorer: warm dark brown + Windows blue
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF00ACC1),
-          primary: const Color(0xFF00ACC1),    // turquoise
-          secondary: const Color(0xFF455A64),  // dark slate grey
+          seedColor: const Color(0xFF0067C0),
+          primary: const Color(0xFF0067C0),    // Windows blue — buttons, chips, FAB
+          secondary: const Color.fromARGB(255, 198, 152, 14),  // dark walnut brown — AppBar
+          surface: const Color(0xFFF5F0EB),    // warm off-white — page background
         ),
+        scaffoldBackgroundColor: const Color(0xFFF5F0EB),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF00ACC1),
+          backgroundColor: Color.fromARGB(255, 212, 151, 18),  // dark walnut brown
           foregroundColor: Colors.white,
           elevation: 2,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color(0xFF00ACC1),
+          backgroundColor: Color(0xFF0067C0),  // Windows blue
           foregroundColor: Colors.white,
         ),
+        chipTheme: ChipThemeData(
+          selectedColor: const Color(0xFF0067C0).withOpacity(0.15),
+          checkmarkColor: const Color(0xFF0067C0),
+        ),
+        cardColor: Colors.white,
         useMaterial3: false,
       ),
       home: const MainScreen(),
@@ -64,8 +71,9 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
-        selectedItemColor: const Color(0xFF00ACC1),
-        unselectedItemColor: Colors.grey,
+        backgroundColor: const Color.fromARGB(255, 198, 152, 14),   // same brown as AppBar
+        selectedItemColor: const Color(0xFF5BB8FF), // light blue — visible on brown
+        unselectedItemColor: Colors.white54,
         onTap: (index) {
           setState(() {
             _currentIndex = index;
