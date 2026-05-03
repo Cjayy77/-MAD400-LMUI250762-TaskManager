@@ -146,7 +146,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Text(
-                task.isCompleted ? '✅  Completed' : '⏳  Pending',
+                task.isCompleted ? 'Completed' : 'Pending',
                 style: TextStyle(
                   color: task.isCompleted
                       ? Colors.green.shade800
