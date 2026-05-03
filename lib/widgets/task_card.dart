@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../models/task.dart';
 
-// TaskCard is a StatelessWidget — it only displays data, it doesn't change it
+
 class TaskCard extends StatelessWidget {
   final Task task;
-  final VoidCallback onTap; // called when the card is tapped
+  final VoidCallback onTap; 
 
   const TaskCard({super.key, required this.task, required this.onTap});
 
-  // Returns a color based on priority level
+ 
   Color _priorityColor() {
     switch (task.priority) {
       case 'High':
@@ -22,7 +22,6 @@ class TaskCard extends StatelessWidget {
     }
   }
 
-  // Returns an icon based on category
   IconData _categoryIcon() {
     switch (task.category) {
       case 'School':
@@ -38,7 +37,6 @@ class TaskCard extends StatelessWidget {
     }
   }
 
-  // A task is overdue if it's not completed AND its due date is in the past
   bool get _isOverdue {
     return !task.isCompleted && task.dueDate.isBefore(DateTime.now());
   }
@@ -49,7 +47,7 @@ class TaskCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 2,
-      color: _isOverdue ? Colors.red.shade50 : Colors.white, // red tint if overdue
+      color: _isOverdue ? Colors.red.shade50 : Colors.white, 
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(10),
@@ -57,7 +55,6 @@ class TaskCard extends StatelessWidget {
           padding: const EdgeInsets.all(12),
           child: Row(
             children: [
-              // Left color bar showing priority
               Container(
                 width: 5,
                 height: 56,
@@ -67,10 +64,10 @@ class TaskCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 12),
-              // Category icon
+              
               Icon(_categoryIcon(), color: Colors.grey.shade600, size: 22),
               const SizedBox(width: 10),
-              // Task info: title, category, due date
+              
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,7 +77,7 @@ class TaskCard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        // Strikethrough if task is done
+                        
                         decoration: task.isCompleted ? TextDecoration.lineThrough : null,
                         color: task.isCompleted ? Colors.grey : Colors.black87,
                       ),
@@ -122,7 +119,7 @@ class TaskCard extends StatelessWidget {
                   ],
                 ),
               ),
-              // Checkmark icon on the right
+           
               Icon(
                 task.isCompleted ? Icons.check_circle : Icons.radio_button_unchecked,
                 color: task.isCompleted ? Colors.green : Colors.grey.shade400,
