@@ -128,7 +128,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Helper widget for each goal row
+  
   Widget _goalTile(String number, String goal) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
