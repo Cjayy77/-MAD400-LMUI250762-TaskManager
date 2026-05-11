@@ -11,10 +11,10 @@ class TaskListScreen extends StatefulWidget {
 }
 
 class _TaskListScreenState extends State<TaskListScreen> {
-  final List<Task> _tasks = []; // all tasks are stored here
+  final List<Task> _tasks = []; 
 
-  String _filter = 'All';    // All | Pending | Completed
-  String _sortBy = 'None';   // None | DueDate | Priority
+  String _filter = 'All';   
+  String _sortBy = 'None';   
   String _searchQuery = '';
   bool _isSearching = false;
   final TextEditingController _searchController = TextEditingController();
@@ -77,7 +77,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
   }
 
   // ── Bottom sheet for adding / editing a task ──────────────────────────────
-  // taskToEdit is null when adding, or the existing Task when editing
+  
   void _showTaskForm({Task? taskToEdit}) {
     final titleController =
         TextEditingController(text: taskToEdit?.title ?? '');
@@ -90,12 +90,12 @@ class _TaskListScreenState extends State<TaskListScreen> {
 
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // allows sheet to grow above the keyboard
+      isScrollControlled: true, 
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (context) {
-        // StatefulBuilder lets us call setState inside the bottom sheet
+        
         return StatefulBuilder(
           builder: (context, setSheetState) {
             return Padding(
@@ -103,7 +103,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                 left: 16,
                 right: 16,
                 top: 20,
-                // This pushes the sheet above the keyboard when typing
+             
                 bottom: MediaQuery.of(context).viewInsets.bottom + 20,
               ),
               child: Form(
@@ -242,7 +242,7 @@ class _TaskListScreenState extends State<TaskListScreen> {
                               ));
                             } else {
                               // Editing an existing task — just update its fields
-                              // Because Task is an object, these changes reflect everywhere
+                            
                               setState(() {
                                 taskToEdit.title = titleController.text;
                                 taskToEdit.description = descController.text;
