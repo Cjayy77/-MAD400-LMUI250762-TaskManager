@@ -13,28 +13,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Task Manager',
-      debugShowCheckedModeBanner: false, // removes the red debug ribbon
+      debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         // Windows File Explorer: warm dark brown + Windows blue
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF0067C0),
-          primary: const Color(0xFF0067C0),    // Windows blue — buttons, chips, FAB
-          secondary: const Color.fromARGB(255, 198, 152, 14),  // dark walnut brown — AppBar
-          surface: const Color(0xFFF5F0EB),    // warm off-white — page background
+          seedColor:  const Color(0xFF00897B),
+          primary:  const Color(0xFF00897B),   
+          secondary: const Color.fromARGB(255, 198, 152, 14),  
+          surface: const Color(0xFFF5F0EB),    
         ),
         scaffoldBackgroundColor: const Color(0xFFF5F0EB),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color.fromARGB(255, 212, 151, 18),  // dark walnut brown
+          backgroundColor: Color.fromARGB(255, 212, 151, 18),  
           foregroundColor: Colors.white,
           elevation: 2,
         ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
-          backgroundColor: Color(0xFF0067C0),  // Windows blue
+          backgroundColor: Color.fromARGB(255, 2, 182, 195),  
           foregroundColor: Colors.white,
         ),
         chipTheme: ChipThemeData(
-          selectedColor: const Color(0xFF0067C0).withOpacity(0.15),
-          checkmarkColor: const Color(0xFF0067C0),
+          selectedColor: const Color(0xFF00897B).withOpacity(0.15),
+          checkmarkColor:  const Color(0xFF00897B),
         ),
         cardColor: Colors.white,
         useMaterial3: false,
@@ -72,7 +72,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         backgroundColor: const Color.fromARGB(255, 198, 152, 14),   // same brown as AppBar
-        selectedItemColor: const Color(0xFF5BB8FF), // light blue — visible on brown
+        selectedItemColor:  const Color(0xFF00897B), // light blue — visible on brown
         unselectedItemColor: Colors.white54,
         onTap: (index) {
           setState(() {

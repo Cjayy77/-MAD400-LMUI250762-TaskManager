@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// Profile screen — shows personal info, bio, and semester goals
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
 
@@ -10,142 +11,194 @@ class ProfileScreen extends StatelessWidget {
         title: const Text('My Profile'),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const SizedBox(height: 20),
 
-            // ── CircleAvatar with initials ──────────────────────────
-            const CircleAvatar(
-              radius: 50,
-              backgroundColor: Color(0xFF0067C0),
-              child: Text(
-                'CJ',
-                style: TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+            // ── Header banner + overlapping avatar ──────────────────
+            // Stack lets the avatar sit on top of the banner edge
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                // Dark banner background
+                Container(
+                  height: 100,
+                  color: const Color(0xFF1A1A1A),
                 ),
-              ),
-            ),
-            const SizedBox(height: 16),
 
-            // ── Full name ───────────────────────────────────────────
-            const Text(
-              'Cedric Julien Eboule', 
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 4),
-
-            // ── Student ID ──────────────────────────────────────────
-            Text(
-              'Student ID: LMUI250762', 
-              style: TextStyle(color: Colors.grey.shade600, fontSize: 15),
-            ),
-            const SizedBox(height: 4),
-
-            // ── Programme ───────────────────────────────────────────
-            Text(
-              'BSc Software Engineering', 
-              style: TextStyle(color: Colors.grey.shade600, fontSize: 15),
-            ),
-            const SizedBox(height: 24),
-
-            // ── Bio card ────────────────────────────────────────────
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              elevation: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Icon(Icons.info_outline, color: Color(0xFF0067C0)),
-                        SizedBox(width: 8),
-                        Text(
-                          'About Me',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
+                // Avatar overlaps the banner bottom edge
+                Positioned(
+                  bottom: -30,
+                  left: 20,
+                  child: CircleAvatar(
+                    radius: 44,
+                    backgroundColor: const Color(0xFF00897B), // teal
+                    // White border so it pops off both the banner and the page
+                    child: CircleAvatar(
+                      radius: 41,
+                      backgroundColor: const Color(0xFF00897B),
+                      child: const Text(
+                        'CJ', // ← CHANGE: your initials e.g. 'CA'
+                        style: TextStyle(
+                          fontSize: 34,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
                         ),
-                      ],
+                      ),
                     ),
-                    const SizedBox(height: 10),
-                    const Text( 
-                      'I am a Level 400 Software Engineering student. '
-                      'I have no particular goals. '
-                      'Thats all.',
-                      style: TextStyle(fontSize: 14, height: 1.6),
-                    ),
-                  ],
+                  ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 16),
-
-            // ── Goals card ──────────────────────────────────────────
-            Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              elevation: 2,
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                      children: [
-                        Icon(Icons.flag, color: Color(0xFF0067C0)),
-                        SizedBox(width: 8),
-                        Text(
-                          'My Goals This Semester',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 12),
-                    _goalTile('1', 'Graduate'),
-                    _goalTile('2', 'Complete my personal projects'),
-                    _goalTile('3', 'Maintain a strong GPA this semester'),
-                  ], 
-                ),
-              ),
+              ],
             ),
 
-            const SizedBox(height: 20),
+            // Space so content clears the overlapping avatar
+            const SizedBox(height: 44),
+
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 0, 20, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+
+                  // ── Name ──────────────────────────────────────────
+                  const Text(
+                    'Cedric Julien Eboule',
+                    style: TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+
+                  // ── Badges ────────────────────────────────────────
+                  Row(
+                    children: [
+                      _badge('Level 400', const Color(0xFF1A1A1A)),
+                      const SizedBox(width: 6),
+                      _badge('Software Engineering', const Color(0xFF00897B)),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+
+                  // ── Student ID ────────────────────────────────────
+                  Text(
+                    'Student ID: LMUI250762', // ← CHANGE: your student ID
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: Colors.grey.shade600,
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  // ── Divider ───────────────────────────────────────
+                  const Divider(height: 1),
+                  const SizedBox(height: 20),
+
+                  // ── About Me ──────────────────────────────────────
+                  const Text(
+                    'About Me',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    
+                    'I am a Level 400 Software Engineering student'
+                    'i I enjoy building '
+                    'apps that solve everyday problems and are pleasant to use. '
+                    'Outside of academics, I work on personal projects and am always '
+                    'looking to improve my technical skills.',
+                    style: TextStyle(
+                      fontSize: 14,
+                      height: 1.6,
+                      color: Color(0xFF444444),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+
+                  // ── Divider ───────────────────────────────────────
+                  const Divider(height: 1),
+                  const SizedBox(height: 20),
+
+                  // ── Goals ─────────────────────────────────────────
+                  const Text(
+                    'Goals this semester',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF111111),
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+
+                  _goalItem('Complete all assignments before deadlines'),
+                  _goalItem('Graduate'),
+                  _goalItem('Maintain a strong GPA this semester'),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  
-  Widget _goalTile(String number, String goal) {
+  // Coloured pill badge — used for Level 400 and programme
+  Widget _badge(String text, Color color) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.white,
+          fontSize: 11,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+    );
+  }
+
+  // Goal row with a teal checkbox-style icon
+  Widget _goalItem(String text) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: const EdgeInsets.only(bottom: 12),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
-            radius: 12,
-            backgroundColor: const Color(0xFF0067C0),
-            child: Text(
-              number,
-              style: const TextStyle(color: Colors.white, fontSize: 12),
+          // Teal checkbox box
+          Container(
+            margin: const EdgeInsets.only(top: 2),
+            width: 18,
+            height: 18,
+            decoration: BoxDecoration(
+              border: Border.all(color: const Color(0xFF00897B), width: 2),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: const Icon(
+              Icons.check,
+              size: 12,
+              color: Color(0xFF00897B),
             ),
           ),
           const SizedBox(width: 10),
+          // Goal text
           Expanded(
-            child: Text(goal, style: const TextStyle(fontSize: 14)),
+            child: Text(
+              text,
+              style: const TextStyle(
+                fontSize: 14,
+                height: 1.5,
+                color: Color(0xFF333333),
+              ),
+            ),
           ),
         ],
       ),
