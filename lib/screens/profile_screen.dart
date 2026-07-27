@@ -62,7 +62,7 @@ class ProfileScreen extends StatelessWidget {
 
                   // ── Name ──────────────────────────────────────────
                   const Text(
-                    'Cedric Julien Eboule',
+                    'Cedric Julien',
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
@@ -83,7 +83,7 @@ class ProfileScreen extends StatelessWidget {
 
                   // ── Student ID ────────────────────────────────────
                   Text(
-                    'Student ID: LMUI250762', // ← CHANGE: your student ID
+                    'Student ID: 00000',
                     style: TextStyle(
                       fontSize: 13,
                       color: Colors.grey.shade600,
